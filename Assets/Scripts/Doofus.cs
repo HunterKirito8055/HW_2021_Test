@@ -9,8 +9,8 @@ public class Doofus : MonoBehaviour
     public LayerMask layerMask;
     #region Private Variables
     Vector3 newPos;
-     bool isOnGround;
-     float fallTime = 0;
+    bool isOnGround;
+    float fallTime = 0;
     #endregion
     private void FixedUpdate()
     {
@@ -21,7 +21,7 @@ public class Doofus : MonoBehaviour
         newPos = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         myBody.MovePosition(myBody.position + newPos * Time.fixedDeltaTime * speed);
 
-        isOnGround = Physics.Raycast(transform.position, Vector3.down* 1f, 1f, layerMask);
+        isOnGround = Physics.Raycast(transform.position, Vector3.down * 1f, 1f, layerMask);
         if (!isOnGround)
         {
             fallTime += Time.fixedDeltaTime;
